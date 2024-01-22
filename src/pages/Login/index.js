@@ -177,7 +177,7 @@ export default function Login({ navigation }) {
         <View>
           <TouchableOpacity
             style={Style.ContinueButton}
-            onPress={() => navigation.navigate("RegistrationType")}
+            onPress={() => navigation.navigate("HomePage")}
           >
             <Text style={[Style.ContinueText]}>Continue</Text>
           </TouchableOpacity>
