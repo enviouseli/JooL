@@ -4,6 +4,7 @@ import Login from '../pages/Login'
 import SignUp from '../pages/SignUp'
 import Home from '../pages/Home'
 import RegistrationType from '../pages/RegistrationType'
+import HomePage from '../pages/HomePage'
 // import CareBuddyRegistration from '../pages/CareBuddyRegistration'
 import {
     Text,
@@ -34,6 +35,7 @@ export default function Routes(){
             <Stack.Screen name="SignUp" component={SignUp} options={{title: false}}/>
             <Stack.Screen name="RegistrationType" component={RegistrationType} options={{title: false}}/>
             <Stack.Screen name="CareBuddyRegistration" component={CareBuddyRegistration} />
+            <Stack.Screen name="HomePage" component={HomePage} options={{title: "My HomePage"}} />
         </Stack.Navigator>
     )
 }

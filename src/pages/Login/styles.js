@@ -48,6 +48,20 @@ const style = StyleSheet.create({
     fontSize:15,
     textAlign:'center'
   },
+
+  ContinueButton:{
+    backgroundColor: '#0A2249',
+    borderWidth:1,
+    borderRadius:30,
+    padding:10,
+    margin:5,
+  },
+  ContinueText: {
+    fontSize:15,
+    textAlign:'center',
+    color:'#fff',
+    fontWeight:'bold',
+  }
   
 });
 export default style;
