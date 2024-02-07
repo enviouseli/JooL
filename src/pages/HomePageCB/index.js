@@ -2,7 +2,7 @@
 import React,{ useRef } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 
-import { Fontisto,Ionicons, SimpleLineIcons} from '@expo/vector-icons';
+import { Fontisto,Ionicons } from '@expo/vector-icons';
 import SlidingCard from '../../components/Cards/SlidingCards'
 import MiddleButtons from '../../components/Cards/MiddleButtons'
  
@@ -46,12 +46,10 @@ export default function HomePage({ navigation }) {
 
 
       <View>
-        <Text style={{marginTop:15, marginBottom:5}}>Recommended for you</Text>
-      </View>
+        <Text style={{marginTop:15, marginBottom:5}}>Recommended for you</Text></View>
       <ScrollView horizontal={true}>
-        <SlidingCard image={require("../../../assets/TempPhotos/scroll1.jpg")} text="Help others with dignity"/>
-        <SlidingCard image={require("../../../assets/TempPhotos/scroll2.jpg")} text="Family support and guidance"/>
-        <SlidingCard image={require("../../../assets/TempPhotos/scroll3.jpg")} text="Tools for better engagement"/>
+        <SlidingCard image={require("../../../assets/TempPhotos/scroll1.jpg")} text="Help Others with dignity"/>
+        <SlidingCard image={require("../../../assets/TempPhotos/scroll2.jpg")} text="Family Support and Guidance"/>
       </ScrollView>
 
 
@@ -59,34 +57,19 @@ export default function HomePage({ navigation }) {
       <View style={{marginBottom:10}}>
       <View style={Style.buttonRow}>
         <MiddleButtons text="My Care Circle" 
-        icon=<Ionicons name='people-outline' size={26} color='#0A2249'/>
+        icon=<Fontisto name='bell' size={20} color='black' style={Style.icons}/>
         page={() => navigation.navigate('CareCircle')}
         />
-
-        <MiddleButtons text="My Care Academy" 
-        icon=<Ionicons name='book-outline' size={26} color='#0A2249'/>
-        page={() => navigation.navigate('CareAcademy')}
-        />
-      
+        <MiddleButtons text="My Care Academy" icon=<Fontisto name='bell' size={20} color='black' style={Style.icons}/>/>
       </View>
     
       <View style={Style.buttonRow}>
-        <MiddleButtons text="My In-App Purchase" 
-        icon=<Ionicons name='basket-outline' size={26} color='#0A2249'/>
-        />
-        <MiddleButtons text="My Care Store" 
-        icon=<SimpleLineIcons name='basket' size={26} color='#0A2249'/>
-        page={() => navigation.navigate('CareStore')}
-        />
+        <MiddleButtons text="My In-App Purchase" icon=<Fontisto name='bell' size={20} color='black' style={Style.icons}/>/>
+        <MiddleButtons text="My Care Store" icon=<Fontisto name='bell' size={20} color='black' style={Style.icons}/>/>
       </View>
       <View style={Style.buttonRow}>
-        <MiddleButtons text="My Health check" 
-        icon=<Ionicons name='shield-checkmark-outline' size={26} color='#0A2249'/>
-        page={() => navigation.navigate('HealthCheck')}
-        />
-        <MiddleButtons text="My Care Community" 
-        icon=<Ionicons name='people' size={26} color='#0A2249'/>
-        />
+        <MiddleButtons text="My Health check" icon=<Fontisto name='bell' size={20} color='black' style={Style.icons}/>/>
+        <MiddleButtons text="My Care Community" icon=<Fontisto name='bell' size={20} color='black' style={Style.icons}/>/>
       </View>
       </View>
     </View>

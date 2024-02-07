@@ -67,7 +67,6 @@ const style = StyleSheet.create({
     justifyContent:"space-around",
     alignItems:"flex-start"
   },
-
   drawerTitle: {
     fontSize:14,
     color:"#0A2249",

@@ -1,0 +1,45 @@
+{
+	"CareBuddies": [{
+			"name": "Grace Cortez",
+			"location":"USA, New York",
+			"dicipline":"Care Buddy, Oncology",
+			"language":"English",
+			"image": "https://images.pexels.com/photos/5325840/pexels-photo-5325840.jpeg"
+		},
+		{
+			"name": "Dr. Jane Cooper",
+			"location":"USA, New York",
+			"dicipline":"Cardiologist",
+			"language":"English, Arabic, Spanish",
+			"image": "https://images.pexels.com/photos/3767392/pexels-photo-3767392.jpeg"
+		},
+		{
+			"name": "Dr. Jennifer Jones",
+			"location":"UAE, Dubai",
+			"dicipline":"Nephrologyst",
+			"language":"English, Arabic",
+			"image": "https://images.pexels.com/photos/3786525/pexels-photo-3786525.jpeg"
+		},
+		{
+			"name": "Dr. Savannah Nguyen",
+			"location":"Spain, Madrid",
+			"dicipline":"Urologyst",
+			"language":"Spanish, English",
+			"image": "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg"
+		},
+		{
+			"name": "Dr. Guy Hawkins",
+			"location":"UAE, Dubai",
+			"dicipline":"Oncologist",
+			"language":"English, German",
+			"image": "https://images.pexels.com/photos/5490276/pexels-photo-5490276.jpeg"
+		},
+		{
+			"name": "Dr Hendrik Aninias",
+			"location":"Italy, Napoli",
+			"dicipline":"Cardiologist",
+			"language":"English, Italian",
+			"image": "https://images.pexels.com/photos/13137671/pexels-photo-13137671.jpeg"
+		}
+	]
+}
