@@ -7,10 +7,9 @@ import {
   Platform,
   Image,
 } from "react-native";
-// import { useFocusEffect } from "@react-navigation/native";
+
 import { AntDesign, Entypo } from "@expo/vector-icons";
-// import AsyncStorage from "@react-native-async-storage/async-storage";
-// import SearchBar from "../../components/SearchBar";
+
 import Style from "./styles";
 import Colors from "../../styles/colors";
 

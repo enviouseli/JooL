@@ -1,0 +1,65 @@
+[		{
+			"name": "Grace Cortez",
+			"location":"USA, New York",
+			"dicipline":"Care Buddy, Oncology",
+			"language":"English",
+			"image": "https://images.pexels.com/photos/5325840/pexels-photo-5325840.jpeg",
+			"id":1,
+			"showContact":false
+		},
+		{
+			"name": "Dr Michael Garcia",
+			"location":"USA, New York",
+			"dicipline":"Therapist",
+			"language":"English, Indian",
+			"image": "https://images.pexels.com/photos/3474629/pexels-photo-3474629.jpeg",
+			"id":6,
+			"showContact":false
+		},
+		{
+			"name": "Dr. Jane Cooper",
+			"location":"USA, New York",
+			"dicipline":"Cardiologist",
+			"language":"Arabic, Spanish",
+			"image": "https://images.pexels.com/photos/3767392/pexels-photo-3767392.jpeg",
+			"id":2,
+			"showContact":false
+		},
+		{
+			"name": "Dr. Guy Hawkins",
+			"location":"UAE, Dubai",
+			"dicipline":"Oncologist",
+			"language":"English, German",
+			"image": "https://images.pexels.com/photos/5490276/pexels-photo-5490276.jpeg",
+			"id":5,
+			"showContact":false
+		},
+		{
+			"name": "Dr. Jennifer Jones",
+			"location":"UAE, Dubai",
+			"dicipline":"Nephrologyst",
+			"language":"English, Arabic",
+			"image": "https://images.pexels.com/photos/3786525/pexels-photo-3786525.jpeg",
+			"id":3,
+			"showContact":false
+		},
+		{
+			"name": "Dr. Savannah Nguyen",
+			"location":"Spain, Madrid",
+			"dicipline":"Urologyst",
+			"language":"Spanish, English",
+			"image": "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg",
+			"id":4,
+			"showContact":false
+		},
+		
+		{
+			"name": "Dr Hendrik Aninias",
+			"location":"Italy, Napoli",
+			"dicipline":"Cardiologist",
+			"language":"Italian",
+			"image": "https://images.pexels.com/photos/13137671/pexels-photo-13137671.jpeg",
+			"id":7,
+			"showContact":false
+		}
+	]
