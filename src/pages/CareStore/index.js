@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 
-import { AntDesign, Entypo, Ionicons, SimpleLineIcons } from "@expo/vector-icons";
+import { AntDesign, Entypo, Ionicons, SimpleLineIcons, Fontisto, MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
 import Style from "./styles";
 import Colors from "../../styles/colors";
@@ -28,17 +28,18 @@ export default function CareStore({ navigation }) {
         />
       <SearchBar />
       
-      <ScrollView horizontal={true} style={{marginBottom:15}}>
+      <ScrollView horizontal={true} style={{marginBottom:20}}>
         <SlidingStore image={require("../../../assets/TempPhotos/CareStore/clothing1.jpeg")} />
         <SlidingStore image={require("../../../assets/TempPhotos/CareStore/clothing3.jpeg")} />
         <SlidingStore image={require("../../../assets/TempPhotos/CareStore/clothing2.jpeg")} />
         <SlidingStore image={require("../../../assets/TempPhotos/CareStore/clothing4.jpeg")} />
       </ScrollView>
 
-      <View style={{marginBottom:10}}>
+      <View >
       <View style={Style.buttonRow}>
         <MiddleButtons text="Clothing" 
-        icon=<Ionicons name='people-outline' size={26} color='#0A2249'/>
+        icon=<Ionicons name='shirt-outline' size={26} color='#0A2249'/>
+        page={() => navigation.navigate('Clothing')}
         />
 
         <MiddleButtons text="Books" 
@@ -49,20 +50,21 @@ export default function CareStore({ navigation }) {
     
       <View style={Style.buttonRow}>
         <MiddleButtons text="Gifts" 
-        icon=<Ionicons name='basket-outline' size={26} color='#0A2249'/>
+        icon=<Ionicons name='gift-outline' size={26} color='#0A2249'/>
         />
         <MiddleButtons text="Supplements" 
-        icon=<SimpleLineIcons name='basket' size={26} color='#0A2249'/>
+        icon=<Ionicons name='medkit-outline' size={26} color='#0A2249'/>
         />
       </View>
       <View style={Style.buttonRow}>
         <MiddleButtons text="Monitor & Wearable" 
-        icon=<Ionicons name='shield-checkmark-outline' size={26} color='#0A2249'/>
-        page={() => navigation.navigate('HealthCheck')}
+        icon=<MaterialIcons name='devices-other' size={26} color='#0A2249'/>
+        page={() => navigation.navigate('Monitors')}
         />
         <MiddleButtons text="Assistive Devices" 
-        icon=<Ionicons name='people' size={26} color='#0A2249'/>
+        icon=<FontAwesome name='assistive-listening-systems' size={26} color='#0A2249'/>
         />
+       
       </View>
       </View>
 

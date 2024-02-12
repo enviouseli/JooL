@@ -11,7 +11,7 @@ const SlidingStore = props=> {
 const slidingStyle = StyleSheet.create(
     {
         box:{marginLeft:10},
-        img:{width:200, height:250, borderRadius:20, borderRadius:20 },
+        img:{width:200, height:225, borderRadius:20, borderRadius:20 },
         
     },
 )

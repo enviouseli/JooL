@@ -1,6 +1,6 @@
 import { View, StyleSheet,TouchableOpacity, Image,Text } from "react-native"
 import { Ionicons,MaterialIcons } from '@expo/vector-icons';
-const HeaderSubPage = props=> {
+const SubPageHeader = props=> {
     return (
         <View style={headerStyle.box}>
             <TouchableOpacity onPress={props.back}>
@@ -18,4 +18,4 @@ const headerStyle = StyleSheet.create(
     },
 )
 
-export default HeaderSubPage;
+export default SubPageHeader;

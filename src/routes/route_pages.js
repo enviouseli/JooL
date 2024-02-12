@@ -26,6 +26,12 @@ import CareCircle from '../pages/CareCircle'
 import HealthCheck from '../pages/HealthCheck'
 import CareAcademy from '../pages/CareAcademy'
 import CareStore from '../pages/CareStore'
+import VideoCall from '../pages/CareCircle/VideoCall'
+import Clothing from '../pages/CareStore/Clothing'
+import Monitors from '../pages/CareStore/Monitors'
+import FaceScan from '../pages/HealthCheck/FaceScan';
+import POSMScan from '../pages/HealthCheck/POSMScan';
+import FaceScanResult from '../pages/HealthCheck/FaceScanResult';
 
 import Style from "../pages/HomePage/styles";
 // import CareBuddyRegistration from '../pages/CareBuddyRegistration'
@@ -68,7 +74,13 @@ function StackRouts(){
       <Stack.Screen name="CareCircle" component={CareCircle} options={{headerShown:false}}/> 
       <Stack.Screen name="HealthCheck" component={HealthCheck} options={{headerShown:false}}/> 
       <Stack.Screen name="CareAcademy" component={CareAcademy} options={{headerShown:false}}/> 
-      <Stack.Screen name="CareStore" component={CareStore} options={{headerShown:false}}/> 
+      <Stack.Screen name="CareStore" component={CareStore} options={{headerShown:false}}/>
+      <Stack.Screen name="VideoCall" component={VideoCall} options={{headerShown:false}}/> 
+      <Stack.Screen name="Clothing" component={Clothing} options={{headerShown:false}}/> 
+      <Stack.Screen name="Monitors" component={Monitors} options={{headerShown:false}}/>
+      <Stack.Screen name="FaceScan" component={FaceScan} options={{headerShown:false}}/>
+      <Stack.Screen name="FaceScanResult" component={FaceScanResult} options={{headerShown:false}}/>
+      <Stack.Screen name="POSMScan" component={POSMScan} options={{headerShown:false}}/>
     </Stack.Navigator>
 
   )

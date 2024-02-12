@@ -15,8 +15,15 @@ const style = StyleSheet.create({
   buttonRow:{
     flexDirection:"row",
     justifyContent:"space-around",
-    alignItems:"flex-start"
+    alignItems:"flex-start",
+    marginBottom:5,
   },
+  title:{
+    color:"#0A2249",
+    fontSize:14,
+    marginLeft:15,
+    marginVertical:5
+  }
 
 });
 export default style;

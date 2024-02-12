@@ -8,6 +8,7 @@ style={{
     opacity: trans,
     color:color,
     marginBottom:5,
+    borderRadius:10,
     }}>
     </View>)
 };

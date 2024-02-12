@@ -25,10 +25,10 @@ const style = StyleSheet.create({
     justifyContent:"space-between",
   },
   profileImage:{
-    height:80, 
-    width:70, 
-    resizeMode:"contain", 
-    borderRadius: 70/2,
+    height:65, 
+    width:65, 
+    resizeMode:"cover", 
+    borderRadius: 65/2,
     marginHorizontal:5,
 
   },
