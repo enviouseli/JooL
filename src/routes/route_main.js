@@ -1,14 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useContext } from "react";
-import { LoginRoutes } from "./route_auth";
-import { ScreenRoutes } from "./route_pages";
+import { ScreenRoutes, AuthenticationRoutes } from "./route_pages";
 
 export default function Routes() {
   //const { user } = useContext(AuthContext);
-  const {user}=true
+  const user=false
   return (
     <NavigationContainer>
-      {user ? <ScreenRoutes /> : <ScreenRoutes />}
+      {user ? <ScreenRoutes /> : <AuthenticationRoutes />}
     </NavigationContainer>
   );
 }
+

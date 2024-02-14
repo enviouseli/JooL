@@ -9,20 +9,24 @@ const style = StyleSheet.create({
   },  
   userBox:{
     height: 70,
-    width:"99.9%",
+    width:"98%",
     borderRadius:15,
     borderWidth:2,
     borderColor:"#0A2249",
     flexDirection:"row",
     alignItems:"center",
     justifyContent:"space-between",
+    marginTop:20,
+    alignSelf:"center"
+
   },
   mediaBox:{
     height: 30,
-    width:"99.9%",
+    width:"98%",
     flexDirection:"row",
     alignItems:"center",
     justifyContent:"space-between",
+    alignSelf:"center"
   },
   profileImage:{
     height:65, 
@@ -36,8 +40,9 @@ const style = StyleSheet.create({
     marginRight:5,
   },
   profileBox:{
-    paddingTop:5,
     width:"50%",
+    flexDirection:"column",
+    justifyContent:"space-around"
   },
   userBoxText:{
     flexGrow: 1, 

@@ -16,7 +16,7 @@ import HomePage from '../pages/HomePage'
 
 
 import Inbox from '../pages/Tabs/Inbox'
-import Profile from '../pages/Tabs/Profile'
+import Profile from '../pages/Tabs/Profile/Profile'
 import Schedules from '../pages/Tabs/Schedules'
 
 import Style from "../pages/HomePage/styles";

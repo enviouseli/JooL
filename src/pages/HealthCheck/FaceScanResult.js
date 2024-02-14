@@ -51,9 +51,9 @@ export default function FaceScanResult({ navigation }) {
           <BarDetails txt1={0} txt2={2} txt3={4} txt4={6} txt5={8} txt6={10}
                       tc1="#000" tc2="#000" tc3="#000" tc4="#000" tc5="#000" tc6="#000"/>
           
-          <View style={{flexDirection:"row", width:"96%", paddingLeft:20, paddingTop:5, justifyContent:"space-between"}}>
-            <Text style={{fontSize:11, opacity:0.8, color:"#000"}}>No Pain</Text>
-            <Text style={{fontSize:11, opacity:0.8, color:"#000"}}>Severe Pain</Text>
+          <View style={Style.barTextView}>
+            <Text style={Style.barText}>No Pain</Text>
+            <Text style={Style.barText}>Severe Pain</Text>
           </View>
         </View>
 

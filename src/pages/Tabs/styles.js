@@ -1,61 +1,73 @@
 import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
-  conteiner: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    marginTop: 20,
-    backgroundColor: "#fff",
+  
+  shadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
-  txtTitle: {
-    margin: 20,
-    textAlign: "center",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  SSOButton: {
-    backgroundColor: '#fffff',
-    borderWidth:1,
-    borderRadius:30,
-    padding:10,
-    margin:5,
-    // flex:1,
-    flexDirection:"row",
-    alignItems:'center',
-    justifyContent:'center',
-    gap: 10,
-  },
-  SSOText: {
-    fontSize:15,
-    textAlign:'center'
-  },
-  SignUpButton: {
-    backgroundColor: '#3B5B8F',
-    borderWidth:1,
-    borderRadius:30,
-    padding:10,
-    margin:5,
-  },
-  SignUpText: {
-    fontSize:15,
-    textAlign:'center',
-    color:'#fff',
-    fontWeight:'bold',
-  },
-  LoginButton:{
-    backgroundColor: '#0A2249',
-    borderWidth:1,
-    borderRadius:30,
-    padding:10,
-    margin:5,
-  },
-  LoginText:{
-    fontSize:15,
-    textAlign:'center',
-    color:'#fff',
-    fontWeight:'bold',
-  },
-});
+  
 
+profileText: { 
+    color: "#0A2249", 
+    fontSize: 15,
+},
+
+profileBox:{
+  paddingTop:5,
+  width:"50%",
+},
+userBoxText:{
+  flexGrow: 1, 
+  flexShrink: 1, 
+  textAlign: 'left',
+  flexWrap: 'wrap',
+  paddingBottom:10,
+},
+userBoxGreeting:{
+  fontSize:10,
+  opacity:0.7,
+  paddingTop:10
+},
+profileImage:{
+  height:65, 
+  width:65, 
+  resizeMode:"cover", 
+  borderRadius: 65/2,
+  marginHorizontal:5,
+
+},
+userBox:{
+  height: 70,
+  width:"97%",
+  borderRadius:15,
+  backgroundColor:"#D6D6D6",
+  flexDirection:"row",
+  alignItems:"center",
+  justifyContent:"space-between",
+  marginTop:15,
+  alignSelf:"center"
+},
+editProfBox: {
+  backgroundColor: 'white',
+  borderRadius: 10,
+  height:60,
+  paddingHorizontal: 10,
+  width: '95%',
+  marginVertical: 10,
+  alignSelf:"center",
+  flexDirection:"row"
+},
+inputLable:{
+  color: "#0A2249", 
+  fontSize: 14,
+  alignSelf:"center"
+},
+inputBox:{
+  alignSelf:"center"
+}
+
+});
 export default style;

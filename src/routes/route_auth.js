@@ -40,14 +40,7 @@ export default function LoginRoutes() {
       <Stack.Screen name="SignUp" component={SignUp} options={{ title: false }} />
       <Stack.Screen name="RegistrationType" component={RegistrationType} options={{ title: false }} />
       <Stack.Screen name="CareBuddyRegistration" component={CareBuddyRegistration} />
-      <Stack.Screen name="HomePage" component={HomePage} 
-      options={({ navigation }) => ({
-        headerLeft: () => (
-          <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-            <MaterialIcons name="menu" size={25} />
-          </TouchableOpacity>
-        ),
-      })} />
+      <Stack.Screen name="HomePage" component={HomePage} options={{headerShown:false}}/>
     </Stack.Navigator>
   )
 }
