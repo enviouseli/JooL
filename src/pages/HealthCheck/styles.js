@@ -88,6 +88,9 @@ resultText: {
 },
 wrapper:{
     flexDirection:"row",
+    alignSelf:"center",
+    justifyContent:"space-between",
+    paddingTop:10
 },
 
 number:{
@@ -98,10 +101,8 @@ number:{
 },
 text: { 
     color: "#0A2249", 
-    fontSize: 11,
-    marginRight:5, 
-    marginTop:5,
-    flexShrink:1,
+    fontSize: 12,
+    marginRight:10,
 },
 box3: {
   backgroundColor: 'white',
@@ -143,13 +144,92 @@ box4:{
   marginVertical:10,
   backgroundColor: '#fff',
   width:"98%",
-  height:100,
+  height:90,
   borderRadius:30,
   padding:5,
   alignSelf:"center",
   paddingTop:10
 },
+posmTxt:{
+  color: "#0A2249", 
+  fontSize: 12, 
+  paddingLeft:15,
+  marginTop:12
+},
+box5:{
+  marginVertical:10,
+  backgroundColor: '#fff',
+  width:"98%",
+  height:77,
+  borderRadius:30,
+  padding:5,
+  alignSelf:"center",
+  paddingTop:5
+},
+box6:{
+  marginVertical:10,
+  backgroundColor: '#fff',
+  width:"98%",
+  height:60,
+  borderRadius:20,
+  padding:5,
+  alignSelf:"center",
+  paddingTop:5
+},
+barText:{
+  fontSize:11, opacity:0.8, color:"#000"
+},
+barTextView:{
+  flexDirection:"row", width:"96%", paddingLeft:30, paddingTop:5, justifyContent:"space-between",
+  paddingRight:10
+},
+profileBox:{
+  paddingTop:5,
+  width:"50%",
+},
+userBoxText:{
+  flexGrow: 1, 
+  flexShrink: 1, 
+  textAlign: 'left',
+  flexWrap: 'wrap',
+  paddingTop:10,
+},
+userBoxGreeting:{
+  fontSize:10,
+  opacity:0.7,
+  paddingBottom:10
+},
+profileImage:{
+  height:65, 
+  width:65, 
+  resizeMode:"cover", 
+  borderRadius: 65/2,
+  marginHorizontal:5,
 
+},
+userBox:{
+  height: 70,
+  width:"90%",
+  borderRadius:15,
+  backgroundColor:"#D6D6D6",
+  flexDirection:"row",
+  alignItems:"center",
+  justifyContent:"space-between",
+  marginTop:15,
+  alignSelf:"center"
+},
+
+box7: {
+  backgroundColor: 'white',
+  borderRadius: 20,
+  height:"50%",
+  paddingHorizontal: 10,
+  width: '95%',
+  marginVertical: 10,
+  paddingTop:10,
+  alignSelf:"center",
+  alignItems:"flex-start",
+},
 
 });
 export default style;

@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Fontisto,Ionicons, SimpleLineIcons} from '@expo/vector-icons';
 import SlidingCard from '../../components/Cards/SlidingCards'
 import MiddleButtons from '../../components/Cards/MiddleButtons'
-import DrawerHeader from '../../components/Header/DrawerHeader'
  
 import Style from "../HomePage/styles";
 // import CareBuddyRegistration from '../pages/CareBuddyRegistration'
@@ -19,21 +18,19 @@ import {
   ImageComponent,
 } from "react-native";
 import { ScrollView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 export default function HomePage({ navigation }) {
   return (
-    <SafeAreaView>
-      <DrawerHeader text="Home Page"
-       drawer={() => navigation.toggleDrawer()}
-        />
+    <View style={Style.conteiner}>
+
+
       <View style={Style.userBox} >
       <Image source={require('../../../assets/TempPhotos/2.jpg')} 
       style={Style.profileImage} />
           <View style={Style.profileBox}>
             <Text style={Style.userBoxGreeting}>Good Morning</Text>
-            <Text style={[Style.userBoxText,{alignContent:"center"}]}>Aliraza Damankesh</Text>
+            <Text style={[Style.userBoxText,{alignContent:"center"}]}>Asma Damankesh</Text>
           </View>
         <Fontisto name="bell" size={24} color="black" style={Style.icons}/>
         <Ionicons name="reorder-two-outline" size={24} color="black" style={Style.icons}/>
@@ -49,7 +46,7 @@ export default function HomePage({ navigation }) {
 
 
       <View>
-        <Text style={{marginTop:15, marginBottom:5, marginLeft:10}}>Recommended for you</Text>
+        <Text style={{marginTop:15, marginBottom:5}}>Recommended for you</Text>
       </View>
       <ScrollView horizontal={true}>
         <SlidingCard image={require("../../../assets/TempPhotos/scroll1.jpg")} text="Help others with dignity"/>
@@ -59,7 +56,7 @@ export default function HomePage({ navigation }) {
 
 
 
-      <View style={{marginVertical:15}}>
+      <View style={{marginBottom:10}}>
       <View style={Style.buttonRow}>
         <MiddleButtons text="My Care Circle" 
         icon=<Ionicons name='people-outline' size={26} color='#0A2249'/>
@@ -92,7 +89,7 @@ export default function HomePage({ navigation }) {
         />
       </View>
       </View>
-    </SafeAreaView>
+    </View>
    
   )
 }

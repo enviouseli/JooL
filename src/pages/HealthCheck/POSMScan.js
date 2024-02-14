@@ -36,7 +36,9 @@ export default function POSMScan({ navigation }) {
         <FontAwesome5 name='user' size={22} color='#0A2249'/>
         <Text style={Style.blueText}>Vital Signs</Text>
       </View>
-      <View style={[Style.box4,Style.shadowProp,{marginVertical:12}]}>
+
+      <Text style={Style.posmTxt}>Body Temperature</Text>
+      <View style={[Style.box4,Style.shadowProp,{marginVertical:5}]}>
           <View style={{ flexDirection: 'row', marginLeft:13,}}>
             <MaterialIcons name="chat-bubble" size={30} color="#32A6F9" style={{marginLeft:106}}/>
             <View style={{position:"absolute"}}>
@@ -54,8 +56,8 @@ export default function POSMScan({ navigation }) {
       </View>
 
 
-      {/*box2*/}
-      <View style={[Style.box4,Style.shadowProp,{marginVertical:12}]}>
+      <Text style={Style.posmTxt}>Pulse Rate(bpm)</Text>
+      <View style={[Style.box4,Style.shadowProp,{marginVertical:5}]}>
           <View style={{ flexDirection: 'row', marginLeft:13,}}>
             <MaterialIcons name="chat-bubble" size={30} color="#32A6F9" style={{marginLeft:140}}/>
             <View style={{position:"absolute"}}>
@@ -75,8 +77,8 @@ export default function POSMScan({ navigation }) {
                       tc1="#000" tc2="#000" tc3="#000" tc4="#000" tc5="red" tc6="red"/>
       </View>
 
-      {/*box3*/}
-      <View style={[Style.box4,Style.shadowProp,{marginVertical:12}]}>
+      <Text style={Style.posmTxt}>Respiration</Text>
+      <View style={[Style.box4,Style.shadowProp,{marginVertical:5}]}>
         <Bar tran={1} size={5} color="red" w={70} marginT={42} marginL={25}/>
           <View style={{ flexDirection: 'row', marginLeft:13,}}>
             <MaterialIcons name="chat-bubble" size={30} color="#32A6F9" style={{marginLeft:244}}/>
@@ -95,26 +97,52 @@ export default function POSMScan({ navigation }) {
       </View>
 
 
-      {/*box4*/}
-      <View style={[Style.box4,Style.shadowProp,{marginVertical:12}]}>
-          <View style={{ flexDirection: 'row', marginLeft:13,}}>
-            <MaterialIcons name="chat-bubble" size={30} color="#32A6F9" style={{marginLeft:106}}/>
+      <Text style={Style.posmTxt}>Blood Pressure</Text>
+      <View style={[Style.box4,Style.shadowProp,{marginVertical:5}]}>
+          <View style={{ flexDirection: 'row', marginLeft:13, marginBottom:12}}>
+
+            <FontAwesome name="circle" size={15} color="green"
+            style={[{paddingLeft:83, position:"absolute", opacity:0.5}, style.shadowProp]}/>
             <View style={{position:"absolute"}}>
-              <Text style={{padding:2, marginTop:4, marginLeft:108, color:"#fff", fontSize:10}}>36.5</Text>
+              <Text style={{padding:2, marginLeft:84, color:"#fff", fontSize:10, alignSelf:"center"}}>S</Text>
+            </View>
+
+            <FontAwesome name="circle" size={15} color="red"
+            style={[{paddingLeft:218, position:"absolute", opacity:0.5}, style.shadowProp]}/>
+            <View style={{position:"absolute"}}>
+              <Text style={{padding:2, marginLeft:219, color:"#fff", fontSize:10, alignSelf:"center"}}>D</Text>
             </View>
           </View>
-          <View style={{flexDirection:"row", width:"99%", paddingLeft:20}}>
-            <FontAwesome name="circle" size={10} color="white" 
-            style={[{paddingLeft:117, position:"absolute", zIndex:1}, style.shadowProp]}/>
-            <ProgBar size={0.30} color="#32A6F9" bgcolor="#F80D38" opc={0.7} w={340} />
+          <View style={{ flexDirection: 'row', marginLeft:13,}}>
+          <Bar tran={1} size={5} color="blue" w={132} marginT={32} marginL={80}/>
+            <MaterialIcons name="chat-bubble" size={30} color="#32A6F9" style={{marginLeft:75}}/>
+            <View style={{position:"absolute"}}>
+              <Text style={{padding:2, marginTop:4, marginLeft:80, color:"#fff", fontSize:11}}>80</Text>
+            </View>
+
+            <MaterialIcons name="chat-bubble" size={30} color="#32A6F9" style={{marginLeft:105}}/>
+            <View style={{position:"absolute"}}>
+              <Text style={{padding:2, marginTop:4, marginLeft:214, color:"#fff", fontSize:10}}>120</Text>
+            </View>
           </View>
 
-          <BarDetails txt1={35} txt2={36} txt3={37} txt4={38} txt5={39} txt6={40}
-                      tc1="#000" tc2="#000" tc3="#000" tc4="red" tc5="red" tc6="red"/>
+          <View style={{flexDirection:"row", width:"99%", paddingLeft:20}}>
+            <FontAwesome name="circle" size={10} color="white" 
+            style={[{paddingLeft:85, position:"absolute", zIndex:1}, style.shadowProp]}/>
+            <FontAwesome name="circle" size={10} color="white" 
+            style={[{paddingLeft:218, position:"absolute", zIndex:1}, style.shadowProp]}/>
+            <ProgBar size={0} color="#32A6F9" bgcolor="#88e2f2" opc={0.7} w={340} />
+            <View style={{width:50, height:5, color:"green", position:"absolute", zIndex:2}}>
+              <Text> </Text>
+            </View>
+          </View>
+
+          <BarDetails txt1={60} txt2={80} txt3={100} txt4={120} txt5={140} txt6={160}
+                      tc1="#000" tc2="#000" tc3="#000" tc4="#000" tc5="red" tc6="red"/>
       </View>
 
       <View style={[Style.StartButton, {marginTop:22}]}>
-        <TouchableOpacity onPress={()=>setIsComplete(true)}>
+        <TouchableOpacity onPress={() => navigation.navigate('POSMScanActivity')}>
           <Text style={Style.buttonText}>Continue</Text>
         </TouchableOpacity>
       </View>

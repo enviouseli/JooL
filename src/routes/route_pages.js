@@ -1,11 +1,11 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { DrawerContentScrollView, createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React,{ useRef } from 'react'
-import ButtomTab from "../components/General/ButtomTab";
 
-import { AntDesign, Ionicons, FontAwesome5, MaterialIcons} from '@expo/vector-icons';
+
+import { AntDesign, Ionicons, FontAwesome5, MaterialIcons, SimpleLineIcons} from '@expo/vector-icons';
  
 // import { DrawerButton } from "react-native";
 import { createStackNavigator} from '@react-navigation/stack'
@@ -17,21 +17,29 @@ import HomePage from '../pages/HomePage'
 
 
 import Inbox from '../pages/Tabs/Inbox'
-import Profile from '../pages/Tabs/Profile'
 import Schedules from '../pages/Tabs/Schedules'
 import Dashboard from '../pages/Tabs/Dashboard'
+import Profile from '../pages/Tabs/Profile/Profile'
+import EditProfile from '../pages/Tabs/Profile/EditProfile'
 
 
 import CareCircle from '../pages/CareCircle'
 import HealthCheck from '../pages/HealthCheck'
 import CareAcademy from '../pages/CareAcademy'
+
 import CareStore from '../pages/CareStore'
 import VideoCall from '../pages/CareCircle/VideoCall'
 import Clothing from '../pages/CareStore/Clothing'
 import Monitors from '../pages/CareStore/Monitors'
+
 import FaceScan from '../pages/HealthCheck/FaceScan';
-import POSMScan from '../pages/HealthCheck/POSMScan';
 import FaceScanResult from '../pages/HealthCheck/FaceScanResult';
+
+import POSMScan from '../pages/HealthCheck/POSMScan';
+import POSMScanActivity from '../pages/HealthCheck/POSMScanActivity';
+import POSMScanMood from '../pages/HealthCheck/POSMScanMood';
+import PatientDashboard from '../pages/HealthCheck/PatientDashboard';
+
 
 import Style from "../pages/HomePage/styles";
 // import CareBuddyRegistration from '../pages/CareBuddyRegistration'
@@ -44,6 +52,9 @@ import {
 } from "react-native";
 import style from '../components/SearchBar/style';
 
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 function CareBuddyRegistration() {
   return (
@@ -53,24 +64,24 @@ function CareBuddyRegistration() {
   );
 }
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
-const Drawer = createDrawerNavigator();
+const LoginRoutes = (navigation) =>{
+  return (
+    <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#fff'}, headerTitleAlign:"center"}}>
+      <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="Login" component={Login} options={{ title: false }} />
+      <Stack.Screen name="SignUp" component={SignUp} options={{ title: false }} />
+      <Stack.Screen name="RegistrationType" component={RegistrationType} options={{ title: false }} />
+      <Stack.Screen name="CareBuddyRegistration" component={CareBuddyRegistration} />
+      <Stack.Screen name="HomePage" component={DrawerRoutes} options={{headerShown:false}}/>
+    </Stack.Navigator>
+  )
+}
 
 function StackRouts(){
   return(
-    <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#fff'}, headerTitleAlign:"center"}}>
-
-      <Stack.Screen name="HomePage" component={HomePage} 
-      //fix this later
-      options={({ navigation }) => ({
-        headerLeft: () => (
-          <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-            <MaterialIcons name="menu" size={25} />
-          </TouchableOpacity>
-        ),
-      })} />
-      
+    <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#fff'}, headerTitleAlign:"center"}}
+    initialRouteName="HomePage">
+      <Stack.Screen name="HomePage" component={HomePage} options={{headerShown:false}}/>
       <Stack.Screen name="CareCircle" component={CareCircle} options={{headerShown:false}}/> 
       <Stack.Screen name="HealthCheck" component={HealthCheck} options={{headerShown:false}}/> 
       <Stack.Screen name="CareAcademy" component={CareAcademy} options={{headerShown:false}}/> 
@@ -81,16 +92,28 @@ function StackRouts(){
       <Stack.Screen name="FaceScan" component={FaceScan} options={{headerShown:false}}/>
       <Stack.Screen name="FaceScanResult" component={FaceScanResult} options={{headerShown:false}}/>
       <Stack.Screen name="POSMScan" component={POSMScan} options={{headerShown:false}}/>
+      <Stack.Screen name="POSMScanActivity" component={POSMScanActivity} options={{headerShown:false}}/>
+      <Stack.Screen name="POSMScanMood" component={POSMScanMood} options={{headerShown:false}}/>
+      <Stack.Screen name="PatientDashboard" component={PatientDashboard} options={{headerShown:false}}/>
     </Stack.Navigator>
 
   )
 }
 
+function ProfileStack(){
+  return(
+      <Stack.Navigator >
+          <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+          <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} />
+      </Stack.Navigator>
+  )
+}
+
 function TabRouts(){
   return(
-    <Tab.Navigator screenOptions={screenOptionStyle}>
+    <Tab.Navigator screenOptions={screenOptionStyle} >
       <Tab.Screen
-        name="stack"
+        name="Stack"
         component={StackRouts}
         options={{
           headerShown: false,
@@ -121,7 +144,7 @@ function TabRouts(){
             (<AntDesign name="dashboard" size={24} color="white" />)
       })}/>
 
-      <Tab.Screen name="Profile" component={Profile} options={() => ({
+      <Tab.Screen name="Profile" component={ProfileStack} options={() => ({
         headerShown: false,
         tabBarIcon: ({focused}) => 
             focused? 
@@ -165,20 +188,44 @@ function TabRouts(){
   )
 }
 
-
-
-
-function DrawerScreen({navigation}) {
+const CustomDrawer = ({navigation}) => { {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Drawer Screen!</Text>
-    </View>
+    <DrawerContentScrollView>
+      <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: "#ccc",}}>
+        <TouchableOpacity onPress={() => navigation.navigate('CareCircle')} style={{ paddingVertical: 5 }}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Ionicons name='people-outline' size={26} color='#0A2249'/>
+            <Text style={{fontSize: 15,marginLeft: 5,}}>
+              Care Circle
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('CareStore')} style={{ paddingVertical: 5 }}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <SimpleLineIcons name='basket' size={26} color='#0A2249'/>
+            <Text style={{fontSize: 15,marginLeft: 5,}}>
+              Care Store
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('CareAcademy')} style={{ paddingVertical: 5 }}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Ionicons name='shield-checkmark-outline' size={26} color='#0A2249'/>
+            <Text style={{fontSize: 15,marginLeft: 5,}}>
+              Care Academy
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+      </DrawerContentScrollView>
   );
-}
+
+}}
 
 
 const DrawerRoutes = () => (
-  <Drawer.Navigator initialRouteName="HomePage" >
+  <Drawer.Navigator initialRouteName="HomePage" 
+  drawerContent={(props) => <CustomDrawer {...props} />}>
       <Drawer.Screen
         name="HomePage"
         component={TabRouts}
@@ -199,36 +246,11 @@ const DrawerRoutes = () => (
          ,
         }}
       />
-      <Drawer.Screen name="CareCircle" component={CareCircle} options={{
-          headerShown:false,
-          drawerIcon: ({focused}) => 
-          focused? 
-          (<Ionicons name="chatbubble-ellipses-outline" size={24} color="black" />)
-          :
-          (<Ionicons name="chatbubble-ellipses-outline" size={24} color="black" />)
-         ,
-      }}/>
-      <Drawer.Screen name="CareAcademy" component={CareAcademy} options={{
-          headerShown:false,
-          drawerIcon: ({focused}) => 
-          focused? 
-          (<Ionicons name="chatbubble-ellipses-outline" size={24} color="black" />)
-          :
-          (<Ionicons name="chatbubble-ellipses-outline" size={24} color="black" />)
-         ,
-      }}/>
-      <Drawer.Screen name="HealthCheck" component={HealthCheck} options={{
-          headerShown:false,
-          drawerIcon: ({focused}) => 
-          focused? 
-          (<Ionicons name="chatbubble-ellipses-outline" size={24} color="black" />)
-          :
-          (<Ionicons name="chatbubble-ellipses-outline" size={24} color="black" />)
-         ,
-      }}/>
-      
-    </Drawer.Navigator>
+  </Drawer.Navigator>
 );
+
+
+
 
 const screenOptionStyle = {
   headerStyle: [{ color:"#fff"}],
@@ -237,3 +259,4 @@ const screenOptionStyle = {
 
 
 export { DrawerRoutes as ScreenRoutes};
+export { LoginRoutes as AuthenticationRoutes};
