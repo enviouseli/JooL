@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -11,25 +11,43 @@ import {
 import { AntDesign, Entypo } from "@expo/vector-icons";
 
 import Style from "./styles";
-import Colors from "../../styles/colors";
+// import Colors from "../../styles/colors";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Home({ navigation }) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function Home() {
+  const navigation = useNavigation();
+  // const [data, setData] = useState(null);
+  // const [loading, setLoading] = useState(true);
 
-    return (
-    <SafeAreaView style={[
-      Style.conteiner,
-      { marginLeft: Platform.OS === "android" ? 0 : 20, marginRight: Platform.OS === "android" ? 0 : 20 },
-    ]}>
-      <View style={{ flex: 1, justifyContent: "flex-end", alignItems:'center', borderWidth:0 }}>
-        <Image source={require('../../../assets/Logo/JooLLogo.png')} style={{ borderWidth:0, borderColor:'#ff0000' }} />
+  return (
+    <SafeAreaView
+      style={[
+        Style.conteiner,
+        {
+          marginLeft: Platform.OS === "android" ? 0 : 0,
+          marginRight: Platform.OS === "android" ? 0 : 0,
+          // backgroundColor:'orange'
+        },
+      ]}
+    >
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "flex-end",
+          alignItems: "center",
+          borderWidth: 0,
+        }}
+      >
+        <Image
+          source={require("../../../assets/Logo/JooLLogo.png")}
+          style={{ borderWidth: 0, borderColor: "#ff0000" }}
+        />
       </View>
 
-      <View style={{ flex: 2, justifyContent: 'center' }}>
+      <View style={{ flex: 2, justifyContent: "center" }}>
         <TouchableOpacity
           style={Style.SignUpButton}
-          onPress={() => navigation.navigate("SignUp")}
+          onPress={() => navigation.navigate("RegisterScreen")}
         >
           <Text style={[Style.SignUpText]}>Sign Up</Text>
         </TouchableOpacity>
@@ -41,10 +59,28 @@ export default function Home({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <View style={{ flexDirection: 'row', marginBottom: 5 }}>
-        <View style={{ backgroundColor: 'black', height: 2, flex: 1, alignSelf: 'center' }} />
-        <Text style={{ alignSelf: 'center', paddingHorizontal: 5, fontSize: 15 }}>or continue with</Text>
-        <View style={{ backgroundColor: 'black', height: 2, flex: 1, alignSelf: 'center' }} />
+      <View style={{ flexDirection: "row", marginBottom: 5 }}>
+        <View
+          style={{
+            backgroundColor: "black",
+            height: 2,
+            flex: 1,
+            alignSelf: "center",
+          }}
+        />
+        <Text
+          style={{ alignSelf: "center", paddingHorizontal: 5, fontSize: 15 }}
+        >
+          or continue with
+        </Text>
+        <View
+          style={{
+            backgroundColor: "black",
+            height: 2,
+            flex: 1,
+            alignSelf: "center",
+          }}
+        />
       </View>
 
       <View>
@@ -70,7 +106,6 @@ export default function Home({ navigation }) {
           <Text style={[Style.SSOText]}>Google</Text>
         </TouchableOpacity>
       </View>
-      
     </SafeAreaView>
   );
 }

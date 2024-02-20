@@ -1,8 +1,8 @@
 import 'react-native-gesture-handler';
-import { NavigationContainer } from "@react-navigation/native";
+// import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React,{ useRef } from 'react'
+import React from 'react'
 
 import { AntDesign, Ionicons, FontAwesome5} from '@expo/vector-icons';
  
@@ -19,15 +19,13 @@ import Inbox from '../pages/Tabs/Inbox'
 import Profile from '../pages/Tabs/Profile/Profile'
 import Schedules from '../pages/Tabs/Schedules'
 
-import Style from "../pages/HomePage/styles";
+// import Style from "../pages/HomePage/styles";
 // import CareBuddyRegistration from '../pages/CareBuddyRegistration'
 import {
   Text,
   View,
-  Button,
-  DrawerLayoutAndroid,
 } from "react-native";
-import style from '../components/SearchBar/style';
+// import style from '../components/SearchBar/style';
 
 
 function CareBuddyRegistration() {
@@ -134,8 +132,6 @@ const DrawerHome = () => (
 const Stack = createStackNavigator();
 
 export default function Routes() {
-
-
   return (
     <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#fff'}, headerTitleAlign:"center"}}>
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />

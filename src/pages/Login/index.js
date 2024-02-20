@@ -1,124 +1,138 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
   Text,
-  ActivityIndicator,
   View,
   Platform,
-  Image,
-  Button,
-  H2,
+  KeyboardAvoidingView,
 } from "react-native";
-import { useFocusEffect } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { AntDesign, Entypo } from "@expo/vector-icons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import SearchBar from "../../components/SearchBar";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
+// import SearchBar from "../../components/SearchBar";
 import Style from "./styles";
-import Colors from "../../styles/colors";
+// import Colors from "../../styles/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import CheckBox from "expo-checkbox";
+// import callLogin from "../../common/API/callLogin";
+import CommonStyles from "../../common/CommonStyles";
+import { setLocalStorageItem } from "../../common/functions";
 
-export default function Login({ navigation }) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function Login() {
+  const navigation = useNavigation();
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [isSelected, setSelection] = useState(null);
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     setLoading(true);
-  //     const getData = async () => {
-  //       try {
-  //         let notes = await AsyncStorage.getItem("notes");
-  //         if (notes === undefined || notes === null) {
-  //           notes = "[]";
-  //         }
-  //         if (notes.length > 0 && notes[0] !== "[") {
-  //           notes = `[${notes}]`;
-  //         }
-  //         setData(JSON.parse(notes));
-  //         setLoading(false);
-  //       } catch (err) {
-  //         // console.log(err);
-  //         // alert("Error loading notes");
-  //       }
-  //     };
-  //     getData();
-  //   }, [])
-  // );
-  // if (loading) {
-  //   return (
-  //     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-  //       <ActivityIndicator size={"large"} color={Colors.loading} />
-  //     </View>
-  //   );
-  // } else {
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    navigation.setOptions({
+      title: "Login",
+      headerBackTitle: "Back",
+    });
+  }, []);
+  const handleLogin = async () => {
+    if (username && password) {
+      try {
+        // console.log("login call fired");
+        // await callLogin(username, password);
+        await setLocalStorageItem('username', username);
+        // console.log( 'username ' + username );
+        navigation.replace("HomePage");
+      } catch (e) {
+        setError(" " + e);
+      }
+    } else {
+      setError("Please enter username and password");
+    }
+  };
+
   return (
     <SafeAreaView
       style={[
-        Style.conteiner,
+        Style.container,
         {
-          marginLeft: Platform.OS === "android" ? 0 : 20,
-          marginRight: Platform.OS === "android" ? 0 : 20,
+          marginLeft: Platform.OS === "android" ? 0 : 0,
+          marginRight: Platform.OS === "android" ? 0 : 0,
         },
       ]}
     >
-      <View>
+      <View style={{paddingHorizontal:5}}>
         <Text style={[Style.txtTitle]}>Welcome Back!</Text>
+        <Text>
+          Please enter your email &amp; password to login to your account
+        </Text>
       </View>
 
-      <View style={{ flexGrow: 1, paddingTop: 40 }}>
-        <Text style={[Style.label]}>Email</Text>
+      
+        {error && (
+          <View style={[CommonStyles.ErrorBlock]}>
+            <Text style={[CommonStyles.ErrorText]}>{error}</Text>
+          </View>
+        )}
+
         <View
           style={{
-            flexDirection: "row",
-            borderBottomWidth: 1,
-            alignItems: "center",
+            flexGrow: 1,
+            paddingTop: 40,
+            // backgroundColor: "orange",
+            paddingHorizontal: 10,
           }}
         >
-          <TextInput
-            placeholder="email@address.com"
-            defaultValue={username}
-            onChangeText={(text) => setUsername(text)}
-            style={[Style.textInput]}
-          ></TextInput>
-          <MaterialCommunityIcons
-            name="email-outline"
-            size={24}
-            color="black"
-          />
-        </View>
+          <KeyboardAvoidingView>
+          <Text style={[Style.label]}>Email</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              borderBottomWidth: 1,
+              alignItems: "center",
+            }}
+          >
+            <TextInput
+              placeholder="email@address.com"
+              defaultValue={username}
+              onChangeText={(text) => setUsername(text)}
+              style={[Style.textInput]}
+            ></TextInput>
+            <MaterialCommunityIcons
+              name="email-outline"
+              size={24}
+              color="black"
+            />
+          </View>
 
-        <Text style={[Style.label]}>Password</Text>
-        <View
-          style={{
-            flexDirection: "row",
-            borderBottomWidth: 1,
-            alignItems: "center",
-          }}
-        >
-          <TextInput
-            secureTextEntry={true}
-            defaultValue={password}
-            onChangeText={(text) => setPassword(text)}
-            style={[Style.textInput]}
-          ></TextInput>
-          <AntDesign name="eyeo" size={24} color="black" />
-        </View>
+          <Text style={[Style.label]}>Password</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              borderBottomWidth: 1,
+              alignItems: "center",
+            }}
+          >
+            <TextInput
+              secureTextEntry={true}
+              defaultValue={password}
+              onChangeText={(text) => setPassword(text)}
+              style={[Style.textInput]}
+            ></TextInput>
+            <AntDesign name="eyeo" size={24} color="black" />
+          </View>
 
-        <View style={Style.checkboxContainer}>
-          <CheckBox
-            value={isSelected}
-            onValueChange={setSelection}
-            style={Style.checkbox}
-          />
-          <Text style={Style.labelCHK}>
-            I agree to Terms &amp; Privacy Policy
-          </Text>
+          <View style={Style.checkboxContainer}>
+            <CheckBox
+              value={isSelected}
+              onValueChange={setSelection}
+              style={Style.checkbox}
+            />
+            <Text style={Style.labelCHK}>
+              I agree to Terms &amp; Privacy Policy
+            </Text>
+          </View>
+
+          </KeyboardAvoidingView>
         </View>
-      </View>
+      
       <View>
         <View style={{ flexDirection: "row", marginBottom: 5 }}>
           <View
@@ -177,7 +191,7 @@ export default function Login({ navigation }) {
         <View>
           <TouchableOpacity
             style={Style.ContinueButton}
-            onPress={() => navigation.navigate("HomePage")}
+            onPress={() => handleLogin()}
           >
             <Text style={[Style.ContinueText]}>Continue</Text>
           </TouchableOpacity>

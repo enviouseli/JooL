@@ -1,15 +1,17 @@
 import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
-  conteiner: {
+  container: {
     flex: 1,
-    paddingHorizontal: 20,
+    // paddingLeft: 20,
     paddingTop: 20,
-    marginTop: 20,
+    // marginTop: 20,
     backgroundColor: "#fff",
+    // backgroundColor: "orange",
   },
   txtTitle: {
-    margin: 20,
+    paddingHorizontal: 5,
+    paddingVertical: 10,
     // textAlign: "center",
     fontSize: 20,
     fontWeight: "bold",
@@ -19,8 +21,8 @@ const style = StyleSheet.create({
     // borderBottomWidth:1,
     borderColor:'#000',
     // borderWidth:1,
-    lineHeight:5,
-    height:50
+    lineHeight:20,
+    height:40
   },
   checkboxContainer: {
     flexDirection: 'row',
@@ -28,6 +30,9 @@ const style = StyleSheet.create({
   },
   checkbox: {
     alignSelf: 'center',
+  },
+  label: {
+    marginTop:30
   },
   labelCHK: {
     margin: 8,
