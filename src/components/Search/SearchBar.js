@@ -33,7 +33,7 @@ const barStyle = StyleSheet.create(
             shadowOpacity: 0.2,
             shadowRadius: 3,
           },
-        inputText: {width:"75%",color: "#000", opacity:"0.7", fontSize: 14, 
+        inputText: {width:"75%",color: "#000", opacity:0.7, fontSize: 14, 
         marginHorizontal:10, textAlign:"left"},
         iconStyle:{
             marginLeft:10,

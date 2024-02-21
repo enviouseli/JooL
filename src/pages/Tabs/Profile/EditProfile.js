@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import DateTimePicker from "@react-native-community/datetimepicker";
 // import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 
-import {
-  SafeAreaView,
-  Text,
-  View,
-  Image,
-} from "react-native";
+import { SafeAreaView, Text, View, Image } from "react-native";
 
 import HeaderMain from "../../../components/Header/MainHeader";
 // import ProfileCards from "../../../components/Cards/ProfileCards";
@@ -25,28 +20,18 @@ import {
 import style from "../styles";
 import { TextInput } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function EditProfile() {
   const navigation = useNavigation();
-  const [date, setDate] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState("date");
-  const [show, setShow] = useState(false);
+  // const [date, setDate] = useState(new Date(1598051730000));
+  // const [mode, setMode] = useState("date");
+  // const [show, setShow] = useState(false);
 
-  /* const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate;
-    setShow(false);
-    setDate(currentDate);
-  };
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
-  const showDatepicker = () => {
-    showMode("date");
-  };
-  const showTimepicker = () => {
-    showMode("time");
-  }; */
+  const [username, setUsername] = useState(null);
+  useEffect(() => {
+    AsyncStorage.getItem("username").then((value) => setUsername(value));
+  }, [username]);
 
   const [fullName, onChangedFN] = useState("Alireza Damankesh");
   const [nickName, onChangedNN] = useState("A.D");
@@ -66,7 +51,7 @@ export default function EditProfile() {
         <View style={Style.profileBox}>
           <Text style={Style.userBoxGreeting}>Good Morning</Text>
           <Text style={[Style.userBoxText, { alignContent: "center" }]}>
-            Aliraza Damankesh
+            {username}
           </Text>
         </View>
         <Fontisto name="bell" size={24} color="black" style={Style.icons} />

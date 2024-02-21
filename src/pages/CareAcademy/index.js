@@ -19,7 +19,12 @@ import SlidingCard from '../../components/Cards/SlidingCards'
 import SearchBar from '../../components/Search/SearchBar'
 export default function CareAcademy({ navigation }) {
   return (
-      <SafeAreaView >
+      <SafeAreaView style={{
+        // marginLeft: Platform.OS === "android" ? 0 : 20,
+        // marginRight: Platform.OS === "android" ? 0 : 20,
+        marginTop: Platform.OS === "android" ? 30 : 50,
+        // backgroundColor:'orange'
+      }} >
         <HeaderMain text="My Care Academy"
        drawer={() => navigation.toggleDrawer()}
        back={() => navigation.goBack()}

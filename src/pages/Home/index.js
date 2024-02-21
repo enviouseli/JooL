@@ -39,7 +39,7 @@ export default function Home() {
         }}
       >
         <Image
-          source={require("../../../assets/Logo/JooLLogo.png")}
+          source={require("../../../assets/Logo/JooL-Logo.png")}
           style={{ borderWidth: 0, borderColor: "#ff0000" }}
         />
       </View>

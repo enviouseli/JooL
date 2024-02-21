@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -23,9 +23,14 @@ import {
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { logout } from "../../../common/functions";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Profile() {
   const navigation = useNavigation();
+  const [username, setUsername] = useState(null);
+  useEffect(() => {
+    AsyncStorage.getItem("username").then((value) => setUsername(value));
+  }, [username]);
   return (
     <SafeAreaView>
       <HeaderMain
@@ -42,7 +47,7 @@ export default function Profile() {
         <View style={Style.profileBox}>
           <Text style={Style.userBoxGreeting}>Good Morning</Text>
           <Text style={[Style.userBoxText, { alignContent: "center" }]}>
-            Aliraza Damankesh
+            {username}
           </Text>
         </View>
         <Fontisto name="bell" size={24} color="black" style={Style.icons} />
