@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -13,11 +13,16 @@ import { AntDesign, Entypo } from "@expo/vector-icons";
 import Style from "./styles";
 // import Colors from "../../styles/colors";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Home() {
   const navigation = useNavigation();
   // const [data, setData] = useState(null);
   // const [loading, setLoading] = useState(true);
+  const [username, setUsername] = useState(null);
+  useEffect(() => {
+    AsyncStorage.getItem("username").then((value) => setUsername(value));
+  }, [username]);
 
   return (
     <SafeAreaView
@@ -45,6 +50,7 @@ export default function Home() {
       </View>
 
       <View style={{ flex: 2, justifyContent: "center" }}>
+        {/* <Text>b{username}a</Text> */}
         <TouchableOpacity
           style={Style.SignUpButton}
           onPress={() => navigation.navigate("RegisterScreen")}

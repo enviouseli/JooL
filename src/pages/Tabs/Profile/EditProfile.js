@@ -30,11 +30,22 @@ export default function EditProfile() {
 
   const [username, setUsername] = useState(null);
   useEffect(() => {
-    AsyncStorage.getItem("username").then((value) => setUsername(value));
+    AsyncStorage.getItem("user").then((value) => {
+      let full_name = JSON.parse(value);
+      setUsername( full_name.firstname + ' ' + full_name.lastname);
+    });
   }, [username]);
 
   const [fullName, onChangedFN] = useState("Alireza Damankesh");
   const [nickName, onChangedNN] = useState("A.D");
+
+  useEffect(() => {
+    AsyncStorage.getItem("user").then((value) => {
+      let full_name = JSON.parse(value);
+      onChangedFN( full_name.firstname + ' ' + full_name.lastname);
+    });
+  }, [fullName]);
+
   return (
     <SafeAreaView>
       <HeaderMain
@@ -49,7 +60,7 @@ export default function EditProfile() {
           style={Style.profileImage}
         />
         <View style={Style.profileBox}>
-          <Text style={Style.userBoxGreeting}>Good Morning</Text>
+          <Text style={Style.userBoxGreeting}>Hello</Text>
           <Text style={[Style.userBoxText, { alignContent: "center" }]}>
             {username}
           </Text>

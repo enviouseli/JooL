@@ -29,7 +29,11 @@ export default function Profile() {
   const navigation = useNavigation();
   const [username, setUsername] = useState(null);
   useEffect(() => {
-    AsyncStorage.getItem("username").then((value) => setUsername(value));
+    AsyncStorage.getItem("user").then((value) => {
+      let full_name = JSON.parse(value);
+      setUsername( full_name.firstname + ' ' + full_name.lastname);
+      console.log( "homepage username: ", full_name.firstname + ' ' + full_name.lastname );
+    });
   }, [username]);
   return (
     <SafeAreaView>
@@ -45,7 +49,7 @@ export default function Profile() {
           style={Style.profileImage}
         />
         <View style={Style.profileBox}>
-          <Text style={Style.userBoxGreeting}>Good Morning</Text>
+          <Text style={Style.userBoxGreeting}>Hello</Text>
           <Text style={[Style.userBoxText, { alignContent: "center" }]}>
             {username}
           </Text>

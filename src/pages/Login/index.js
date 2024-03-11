@@ -18,7 +18,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import CheckBox from "expo-checkbox";
 // import callLogin from "../../common/API/callLogin";
 import CommonStyles from "../../common/CommonStyles";
-import { setLocalStorageItem } from "../../common/functions";
+// import { setLocalStorageItem } from "../../common/functions";
+import callLogin from "../../common/API/callLogin";
+// import axios from "axios";
+// import API_URL, { MEMBER_LOGIN_ENDPOINT } from "../../common/constants";
 
 export default function Login() {
   const navigation = useNavigation();
@@ -26,6 +29,10 @@ export default function Login() {
   const [password, setPassword] = useState(null);
   const [isSelected, setSelection] = useState(null);
   const [error, setError] = useState(null);
+  const [showPassword, setShowPassword] = useState(false); 
+  const toggleShowPassword = () => { 
+    setShowPassword(!showPassword); 
+}; 
   useEffect(() => {
     navigation.setOptions({
       title: "Login",
@@ -33,12 +40,17 @@ export default function Login() {
     });
   }, []);
   const handleLogin = async () => {
+    
+    /* await axios.post(API_URL + MEMBER_LOGIN_ENDPOINT, {
+      username: username,
+      password: password,
+    })
+    .then((res)=>console.log('axios ', res.data)); */
+
     if (username && password) {
       try {
-        // console.log("login call fired");
-        // await callLogin(username, password);
-        await setLocalStorageItem('username', username);
-        // console.log( 'username ' + username );
+        await callLogin(username, password);
+        // await setLocalStorageItem('username', username);
         navigation.replace("HomePage");
       } catch (e) {
         setError(" " + e);
@@ -111,12 +123,12 @@ export default function Login() {
             }}
           >
             <TextInput
-              secureTextEntry={true}
+              secureTextEntry={!showPassword}
               defaultValue={password}
               onChangeText={(text) => setPassword(text)}
               style={[Style.textInput]}
             ></TextInput>
-            <AntDesign name="eyeo" size={24} color="black" />
+            <AntDesign name="eyeo" size={24} color="black" onPress={toggleShowPassword} />
           </View>
 
           <View style={Style.checkboxContainer}>

@@ -35,6 +35,7 @@ export const checkLoginStatus = async (page) => {
 export const logout = (navigation) => {
   console.log("logout");
   AsyncStorage.removeItem("user");
+  AsyncStorage.removeItem("username");
   AsyncStorage.removeItem("token");
   navigation.navigate("Home");
 };

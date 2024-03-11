@@ -35,13 +35,13 @@ const RegistrationDetailsCareBuddyScreen = () => {
   ]);
   const questions = {
     // 'first_name' : 'what is your first name?',
-    'last_name' : 'what is your last name?',
+    'last_name' : 'What is your last name?',
     'gender' : 'What is your gender?',
-    'dob' : 'what is your date of birth?',
-    'language' : 'what is your prefered language?',
-    'nationality' : 'what is your nationality?',
+    'dob' : 'What is your date of birth?',
+    'language' : 'What is your prefered language?',
+    'nationality' : 'What is your nationality?',
     'care_area' : 'Allow us to know the location where care is provided?',
-    'current_location' : 'what is your current location?',
+    'current_location' : 'What is your current location?',
   };
 
   const handleMessage = () => {

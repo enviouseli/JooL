@@ -1,6 +1,9 @@
 import {
+  // Alert,
   KeyboardAvoidingView,
-  // StyleSheet,
+  // Modal,
+  // Pressable,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -15,8 +18,9 @@ import CheckBoxField from "../../components/CheckBoxField";
 import StrikeThroughText from "../../components/StrikeThrouhText";
 import WhiteButton from "../../components/WhiteButton";
 import { AntDesign } from "@expo/vector-icons";
-import { setLocalStorageItem } from "../../common/functions";
-// import callRegister from "../../common/API/callRegister";
+// import { setLocalStorageItem } from "../../common/functions";
+import callRegister from "../../common/API/callRegister";
+import COLOURS from "../../common/colors";
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -27,20 +31,37 @@ const RegisterScreen = () => {
   const handleNavigation = (page) => {
     navigation.navigate(page);
   };
+  const isEmail = (username) => {
+    let reg = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+    if (reg.test(username) === true) {
+      console.log("Email is Correct");
+      // this.setState({ email: text })
+      return true;
+    } else {
+      // this.setState({ email: text })
+      console.log("Email is not Correct");
+      return false;
+    }
+  };
   const handleRegister = async () => {
+    console.log('registeration started');
     setError(null);
     if (username && password && isSelected) {
-      try {
-        // await callRegister(username, password);
-        await setLocalStorageItem('username', username);
-        navigation.reset({
-          index: 0,
-          routes: [{ name: "RegistrationMembershipTypeScreen" }],
-        });
-        // navigation.replace("RegistrationMembershipTypeScreen")
-      } catch (e) {
-        // console.log('Error logged from registerscreen ',e);
-        setError(" " + e);
+      if (isEmail(username)) {
+        try {
+          await callRegister(username, password);
+          navigation.reset({
+            index: 0,
+            routes: [{ name: "RegistrationMembershipTypeScreen" }],
+          });
+          // navigation.replace("RegistrationMembershipTypeScreen")
+        } catch (e) {
+          // console.log('Error logged from registerscreen ',e);
+          setError(" " + e);
+        }
+      }
+      else {
+        setError('Email is not valid');
       }
     } else {
       setError(
@@ -121,6 +142,12 @@ const RegisterScreen = () => {
             </View>
           </View>
         </KeyboardAvoidingView>
+        {/* <Pressable
+          style={[styles.button, styles.buttonOpen]}
+          onPress={() => setModalVisible(true)}
+        >
+          <Text style={styles.textStyle}>Show Modal</Text>
+        </Pressable> */}
       </View>
     </SafeAreaView>
   );
@@ -128,4 +155,54 @@ const RegisterScreen = () => {
 
 export default RegisterScreen;
 
-// const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    marginHorizontal: 3,
+    width: 100,
+    backgroundColor: COLOURS.darkBlue,
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+  },
+  modalHeading: {
+    marginBottom: 15,
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+});
